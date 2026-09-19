@@ -1,9 +1,9 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import os
 
 # PAGE CONFIGURATION
-
 st.set_page_config(
     page_title="Foresight - Risk Dashboard",
     page_icon="⚠️",
@@ -14,16 +14,28 @@ st.title("⚠️ Risk Dashboard")
 st.caption("Project Foresight | Inventory Risk Monitoring")
 
 
+# Project root folder
+BASE_DIR = os.path.dirname(
+    os.path.dirname(
+        os.path.abspath(__file__)
+    )
+)
+
 # FILE PATH
 
-FEATURE_PATH = r"C:\foresight\data\cleaned\feature_engineered.xls"
+feature_path = os.path.join(
+    BASE_DIR,
+    "data",
+    "cleaned",
+    "feature_engineered.xls"
+)
 
 # LOAD DATA
 
 @st.cache_data
 def load_feature_data():
 
-    df = pd.read_csv(FEATURE_PATH)
+    df = pd.read_csv(feature_path)
 
     # Clean column names
     df.columns = df.columns.str.strip()

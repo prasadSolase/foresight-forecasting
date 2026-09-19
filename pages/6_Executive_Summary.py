@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-
+import os
 
 # PAGE CONFIG
 
@@ -18,15 +18,55 @@ st.markdown(
     "Management-level summary of sales, inventory, forecasting and risk."
 )
 
+# Project root folder
+BASE_DIR = os.path.dirname(
+    os.path.dirname(
+        os.path.abspath(__file__)
+    )
+)
+# FILE PATH
 
-# FILE PATHS
+sales_path= os.path.join(
+    BASE_DIR,
+    "data",
+    "cleaned",
+    "sales_daily_clean.xls"
+)
 
-SALES_PATH = r"C:\foresight\data\cleaned\sales_daily_clean.xls"
-SKU_PATH = r"C:\foresight\data\cleaned\sku_master_clean.xls"
-INVENTORY_PATH = r"C:\foresight\data\cleaned\inventory_snapshots_clean.xls"
-RISK_PATH = r"C:\foresight\data\cleaned\inventory_risk.xls"
-FORECAST_PATH = r"C:\foresight\data\cleaned\demand_forecast.xls"
-MODEL_PATH = r"C:\foresight\data\cleaned\model_comparison.xls"
+sku_path= os.path.join(
+    BASE_DIR,
+    "data",
+    "cleaned",
+    "sku_master_clean.xls"
+)
+
+inventory_path= os.path.join(
+    BASE_DIR,
+    "data",
+    "cleaned",
+    "inventory_snapshots_clean.xls"
+)
+
+risk_path= os.path.join(
+    BASE_DIR,
+    "data",
+    "cleaned",
+    "inventory_risk.xls"
+)
+
+forecast_path= os.path.join(
+    BASE_DIR,
+    "data",
+    "cleaned",
+    "demand_forecast.xls"
+)
+
+model_path= os.path.join(
+    BASE_DIR,
+    "data",
+    "cleaned",
+    "model_comparison.xls"
+)
 
 # LOAD DATA
 
@@ -34,25 +74,25 @@ MODEL_PATH = r"C:\foresight\data\cleaned\model_comparison.xls"
 def load_data():
 
     sales = pd.read_csv(
-        SALES_PATH,
+        sales_path,
         parse_dates=["Date"]
     )
 
     sku = pd.read_csv(
-        SKU_PATH,
+        sku_path,
         parse_dates=["Launch_Date"]
     )
 
     inventory = pd.read_csv(
-        INVENTORY_PATH,
+        inventory_path,
         parse_dates=["Snapshot_Date"]
     )
 
-    risk = pd.read_csv(RISK_PATH)
+    risk = pd.read_csv(risk_path)
 
-    forecast = pd.read_csv(FORECAST_PATH)
+    forecast = pd.read_csv(forecast_path)
 
-    model = pd.read_csv(MODEL_PATH)
+    model = pd.read_csv(model_path)
 
     return sales, sku, inventory, risk, forecast, model
 

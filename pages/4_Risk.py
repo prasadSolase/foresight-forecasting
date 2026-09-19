@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
-  
+
 # PAGE CONFIGURATION
 st.set_page_config(
     page_title="Foresight - Risk Dashboard",
@@ -12,7 +12,6 @@ st.set_page_config(
 
 st.title("⚠️ Risk Dashboard")
 st.caption("Project Foresight | Inventory Risk Monitoring")
-
 
 # Project root folder
 BASE_DIR = os.path.dirname(

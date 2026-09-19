@@ -3,10 +3,9 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import os
-
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
- 
+
 # PAGE CONFIGURATION
 
 st.set_page_config(
@@ -32,8 +31,6 @@ sales_path = os.path.join(
     "cleaned",
     "sales_daily_clean.xls"
 )
-
-
 # LOAD DATA
 
 @st.cache_data

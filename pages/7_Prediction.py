@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import os
- 
+
 # PAGE CONFIGURATION
 
 st.set_page_config(
@@ -34,6 +34,7 @@ file_path= os.path.join(
     "cleaned",
     "demand_forecast.xls"
 )
+
 forecast = pd.read_csv(file_path)
 
 # DATA VALIDATION

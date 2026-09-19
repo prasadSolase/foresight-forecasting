@@ -1,0 +1,5 @@
+streamlit dashboard - run command - python -m streamlit run app.py
+                             link - http://localhost:8501/
+
+
+rendar - https://foresight-forecasting.onrender.com

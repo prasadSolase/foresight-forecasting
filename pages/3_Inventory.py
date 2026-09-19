@@ -14,7 +14,6 @@ st.set_page_config(
 st.title("📦 Inventory Dashboard")
 st.caption("Project Foresight | Inventory Monitoring")
 
-
 # Project root folder
 BASE_DIR = os.path.dirname(
     os.path.dirname(
@@ -30,7 +29,10 @@ inventory_path = os.path.join(
     "cleaned",
     "inventory_snapshots_clean.xls"
 )
+<<<<<<< HEAD
 
+=======
+>>>>>>> 66ef715 (Fix Render file paths)
 
 # LOAD DATA
 

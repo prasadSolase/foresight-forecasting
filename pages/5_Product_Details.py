@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+<<<<<<< HEAD
 import os 
 
 # PAGE CONFIGURATION
@@ -47,7 +48,6 @@ inventory_path= os.path.join(
     "cleaned",
     "inventory_snapshots_clean.xls"
 )
-
 
 # LOAD DATA
 

@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-
+import os 
 
 # PAGE CONFIGURATION
 
@@ -20,9 +20,35 @@ st.markdown(
 
 # FILE PATHS
 
-SKU_PATH = r"C:\foresight\data\cleaned\sku_master_clean.xls"
-SALES_PATH = r"C:\foresight\data\cleaned\sales_daily_clean.xls"
-INVENTORY_PATH = r"C:\foresight\data\cleaned\inventory_snapshots_clean.xls"
+# Project root folder
+BASE_DIR = os.path.dirname(
+    os.path.dirname(
+        os.path.abspath(__file__)
+    )
+)
+
+# FILE PATH
+
+sku_path= os.path.join(
+    BASE_DIR,
+    "data",
+    "cleaned",
+    "sku_master_clean.xls"
+)
+
+sales_path= os.path.join(
+    BASE_DIR,
+    "data",
+    "cleaned",
+    "sales_daily_clean.xls"
+)
+
+inventory_path= os.path.join(
+    BASE_DIR,
+    "data",
+    "cleaned",
+    "inventory_snapshots_clean.xls"
+)
 
 
 # LOAD DATA
@@ -31,17 +57,17 @@ INVENTORY_PATH = r"C:\foresight\data\cleaned\inventory_snapshots_clean.xls"
 def load_data():
 
     sku = pd.read_csv(
-        SKU_PATH,
+        sku_path,
         parse_dates=["Launch_Date"]
     )
 
     sales = pd.read_csv(
-        SALES_PATH,
+        sales_path,
         parse_dates=["Date"]
     )
 
     inventory = pd.read_csv(
-        INVENTORY_PATH,
+        inventory_path,
         parse_dates=["Snapshot_Date"]
     )
 

@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import os
 
 # PAGE CONFIGURATION
-
+ 
 st.set_page_config(
     page_title="Foresight - Inventory Dashboard",
     page_icon="📦",

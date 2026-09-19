@@ -18,8 +18,6 @@ st.markdown(
     "Detailed product, sales, pricing and inventory analysis for each SKU."
 )
 
-# FILE PATHS
-
 # Project root folder
 BASE_DIR = os.path.dirname(
     os.path.dirname(

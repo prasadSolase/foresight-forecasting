@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-
+import os
 
 # PAGE CONFIGURATION
 
@@ -15,9 +15,21 @@ st.title("📦 Inventory Dashboard")
 st.caption("Project Foresight | Inventory Monitoring")
 
 
+# Project root folder
+BASE_DIR = os.path.dirname(
+    os.path.dirname(
+        os.path.abspath(__file__)
+    )
+)
+
 # FILE PATH
 
-INVENTORY_PATH = r"C:\foresight\data\cleaned\inventory_snapshots_clean.xls"
+inventory_path = os.path.join(
+    BASE_DIR,
+    "data",
+    "cleaned",
+    "inventory_snapshots_clean.xls"
+)
 
 
 # LOAD DATA
@@ -25,7 +37,7 @@ INVENTORY_PATH = r"C:\foresight\data\cleaned\inventory_snapshots_clean.xls"
 @st.cache_data
 def load_inventory():
 
-    inventory = pd.read_csv(INVENTORY_PATH)
+    inventory = pd.read_csv(inventory_path)
 
     # Clean column names
     inventory.columns = inventory.columns.str.strip()

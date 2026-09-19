@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import os
 
 # PAGE CONFIGURATION
 
@@ -18,10 +19,22 @@ st.write(
     "Actual demand vs predicted demand analysis for Project Foresight."
 )
 
-# LOAD DATA
-FILE_PATH = r"C:\foresight\data\cleaned\demand_forecast.xls"
+# Project root folder
+BASE_DIR = os.path.dirname(
+    os.path.dirname(
+        os.path.abspath(__file__)
+    )
+)
 
-forecast = pd.read_csv(FILE_PATH)
+# FILE PATH
+
+file_path= os.path.join(
+    BASE_DIR,
+    "data",
+    "cleaned",
+    "demand_forecast.xls"
+)
+forecast = pd.read_csv(file_path)
 
 # DATA VALIDATION
 

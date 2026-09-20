@@ -36,7 +36,7 @@ sales_path = os.path.join(
 @st.cache_data
 def load_sales_data():
 
-    sales = pd.read_excel(sales_path, engine="xlrd")
+    sales = pd.read_csv(sales_path)
 
     sales.columns = sales.columns.str.strip()
 

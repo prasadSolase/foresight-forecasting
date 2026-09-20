@@ -29,10 +29,7 @@ inventory_path = os.path.join(
     "cleaned",
     "inventory_snapshots_clean.xls"
 )
-<<<<<<< HEAD
 
-=======
->>>>>>> 66ef715 (Fix Render file paths)
 
 # LOAD DATA
 
